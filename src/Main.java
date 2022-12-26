@@ -21,7 +21,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Какое по счету треугольное число вы хотите увидеть?");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(reader.readLine());
+        String n_str = reader.readLine();
+        while (!n_str.chars().allMatch( Character::isDigit )){
+            System.out.println("Введите цифру!");
+            n_str = reader.readLine();
+        }
+        int n = Integer.parseInt(n_str);
 
         triangle_func(n);
         triangle_cycle(n);
